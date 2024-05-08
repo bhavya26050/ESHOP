@@ -1,0 +1,53 @@
+CREATE TABLE public.address (
+    user_id character varying(20) NOT NULL,
+    street_address character varying(255) NOT NULL,
+    city character varying(255) NOT NULL,
+    state character varying(255) NOT NULL,
+    pin_code integer NOT NULL,
+    country character varying(255) NOT NULL
+);
+
+CREATE TABLE public.categories (
+    category_id character varying(20) NOT NULL,
+    category_name character varying(255) NOT NULL
+);
+
+CREATE TABLE public.orders (
+    order_id character varying(20) NOT NULL,
+    product_id character varying(20) NOT NULL,
+    user_id character varying(20) NOT NULL,
+    quantity integer NOT NULL,
+    date_ordered date NOT NULL
+);
+
+CREATE TABLE public.payment (
+    payment_id character varying(20) NOT NULL,
+    user_id character varying(20) NOT NULL,
+    order_id character varying(20) NOT NULL,
+    payment_date date NOT NULL,
+    amount double precision NOT NULL,
+    payment_method character varying(255) NOT NULL
+);
+
+CREATE TABLE public.product (
+    product_id character varying(25) NOT NULL,
+    category_id character varying(20) NOT NULL,
+    product_name character varying(255) NOT NULL,
+    price integer NOT NULL,
+    quantity integer NOT NULL
+);
+
+CREATE TABLE public.reviews (
+    review_id character varying(20) NOT NULL,
+    product_id character varying(20) NOT NULL,
+    user_id character varying(20) NOT NULL,
+    rating integer NOT NULL
+);
+
+CREATE TABLE public.users (
+    user_id character varying(20) NOT NULL,
+    user_name character varying(255) NOT NULL,
+    email character varying(255) NOT NULL,
+    mobile_no character varying(20) NOT NULL,
+    billing_address character varying(255) NOT NULL
+);
